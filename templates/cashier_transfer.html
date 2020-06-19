@@ -1,0 +1,72 @@
+{% extends 'cash_layout.html' %}
+
+{% block head %}
+<style>
+h3{text-align: left;}
+</style>
+<!-- CSS only -->
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <h3 style="text-align:center; font-family:Monaco;"><b>Transfer Page</b></h3>
+    <hr>
+    <br>
+{% if data %}
+    {% for result in data %}
+<form action="{{url_for('accountt_success_view', cid=result.cid)}}" method="POST">
+
+    <div class="row">
+
+      <div class="col-sm-4" ><h3 style="text-align:right; font-family:Monaco;"><b>Customer-ID :</b></h3></div>
+      <div class="col-sm-4"> <h3> {{ result['cid'] }} </h3></div>
+
+  </div>
+<br>
+    <div class="row">
+
+      <div class="col-sm-4" ><h3 style="text-align:right; font-family:Monaco;"><b>Source-Type :</b></h3></div>
+      <div class="col-sm-4"> <h2>
+          <select name="sbtype" id="sbtype" required>
+            <option value="">None</option>
+            <option value="s">Saving</option>
+            <option value="c">Current</option>
+            </select> </h2></div>
+
+  </div>
+<br>
+    <div class="row">
+
+      <div class="col-sm-4" ><h3 style="text-align:right; font-family:Monaco;"><b>Destination-Type :</b></h3></div>
+      <div class="col-sm-4"> <h3>
+          <div class="col-sm-4"> <h2>
+          <select name="dbtype" id="dbtype" required>
+            <option value="">None</option>
+            <option value="s">Saving</option>
+            <option value="c">Current</option>
+            </select> </h2></div>
+      </h3></div>
+
+  </div>
+<br>
+    <div class="row">
+
+      <div class="col-sm-4" ><h3 style="text-align:right; font-family:Monaco;"><b>Transfer Amount :</b></h3></div>
+        <div class="col-sm-4"> <h3><input type="NUMBER" name="transfer" min="1" required> </h3> </div>
+
+  </div>
+<br>
+    <div class="row">
+
+      <div class="col-sm-4" ></div>
+      <div class="col-sm-4">  <input type="submit" id="deposit" value="Transfer" class="btn btn-primary" required> </div>
+
+  </div>
+</form>
+{% endfor %}
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+// WE HAVE USED XAMPP's MYSQL
+
+cd xampp\mysql\bin
+mysql -u root -p
+
+//FOR CREATING A DATABASE..................
+create database bank;  
+
+//TO ENTER INTO DATABASE...................
+use bank;
+
+//CREATING USERS TABLE......................
+create table users(username varchar(20),password varchar(257),position varchar(20));
+
+//CREATING CUSTOMERS TABLE...................
+create table customers(cid int primary key auto_increment,cust_ssnid bigint unique not null,cname varchar(20),age int,address varchar(200),state varchar(30),messages varchar(80),status varchar(8),timestamp timestamp default now());
+Alter table customers auto_increment=100000000;
+
+//CREATING ACCOUNTS TABLE....................
+create table accounts(accid int primary key auto_increment,cid int not null,acctype char(20),balance decimal(15,2), cdate date,udate timestamp, duration int,foreign key(cid) references customers(cid),messages varchar(80),status varchar(8));
+Alter table accounts auto_increment=100000000;
+
+//CREATING TRANSACTIONS TABLE.................
+create table transactions(tid int primary key auto_increment,cid int not null,accid int not null,stype char(7),dtype char(7),status varchar(20),time timestamp,amount int,foreign key(cid) references customers(cid),foreign key(accid) references accounts(accid),tdate date default now());
+Alter table transactions auto_increment=100000000;
+
+
+
+

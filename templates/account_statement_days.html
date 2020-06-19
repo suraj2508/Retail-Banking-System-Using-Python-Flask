@@ -1,0 +1,50 @@
+{% extends 'cash_layout.html' %}
+
+{% block body %}
+
+<div class="container">
+{% if data %}
+    <h1 style="text-align:center">Account no : {{ data[0]['accid'] }}</h1>
+    <table>
+     <th>
+    <td style="text-align:center">Transcation ID</td>
+    <td style="text-align:center">Description</td>
+    <td style="text-align:center">Date (YYYY-MM-DD)</td>
+    <td style="text-align:center">Amount</td>
+    </th>
+{% for value in data %}
+ <tr>
+        <td style="text-align:center"> <b>*</b></td>
+        <td style="text-align:center">{{ value['tid']}}</td>
+        <td style="text-align:center">{{ value['status']}}</td>
+     <td style="text-align:center">{{ value['tdate']}}</td>
+     <td style="text-align:center">{{ value['amount']}}</td>
+
+
+ </tr>
+    {% endfor %}
+    </table>
+     <div style="text-align : center;">
+            <br>
+         <form action="{{url_for('downloadpdfday', accid=data[0].accid, limit = day) }}">
+    <input type="submit" name="pdf" value="DOWNLOAD AS PDF" style="text-align : center;">
+         </form>
+      </div>
+         <div style="text-align : center;">
+            <br>
+             <form action="{{url_for('downloadexcelday', accid=data[0].accid, limit = day) }}">
+    <input type="submit" name="excel" value="DOWNLOAD AS EXCEL" style="text-align : center;">
+             </form>
+      </div>
+    {% else %}
+    <div class="container">
+        <div style="text-align : center;">
+            <h1 style="text-align : center:">No Transcation Found</h1>
+      </div>
+
+        </div>
+{% endif %}
+
+</div>
+
+{% endblock %}

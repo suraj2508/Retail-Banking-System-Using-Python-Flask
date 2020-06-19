@@ -1,0 +1,81 @@
+{% extends 'cash_layout.html' %}
+
+{% block head %}
+<style>
+h3{text-align: left;}
+</style>
+<!-- CSS only -->
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <h3 style="text-align:center; font-family:Monaco;"><b>DEPOSIT PAGE</b></h3>
+    <hr>
+    <br>
+   {% if data %}
+    {% for result in data %}
+    <div class="container-fluid">
+  <div class="row">
+      <div class="col-sm-4" ><h3 style="text-align:right; font-family:Monaco;"><b>CUSTOMER-ID :</b></h3></div>
+      <div class="col-sm-4"> <h3> {{ result['cid'] }} </h3></div>
+  </div>
+  <br>
+
+        <div class="row">
+            <div class="col-sm-4"><h3 style="text-align:right; font-family:Monaco;"><b>ACCOUNT-ID : </b></h3></div>
+      <div class="col-sm-4"> <h3>{{ result['accid'] }}</h3></div>
+  </div>
+  <br>
+
+
+        <div class="row">
+            <div class="col-sm-4"><h3 style="text-align:right; font-family:Monaco;"><b>ACCOUNT-TYPE :</b></h3></div>
+      <div class="col-sm-4"> <h3>{{ result['acctype'] }} </h3></div>
+  </div>
+  <br>
+
+          <div class="row">
+              <div class="col-sm-4"><h3 style="text-align:right; font-family:Monaco;"><b>ACCOUNT-BALANCE :</b></h3></div>
+      <div class="col-sm-4"> <h3>{{ result['balance'] }} </h3></div>
+  </div>
+  <br>
+
+
+<form action="{{url_for('account_success_view', accid=result.accid)}}" method="POST" class="form-group">
+
+         <div class="row">
+             <div class="col-sm-4"><h3 style="text-align:right; font-family:Monaco;"><b>DEPOSIT-AMOUNT :</b></h3></div>
+      <div class="col-sm-4"> <h3><input type="NUMBER" name="deposit" min="1" required> </h3></div>
+  </div>
+  <br>
+
+         <div class="row">
+             <div class="col-sm-4">
+
+             </div>
+               <div class="col-sm-4">
+                   <h3 style="text-align:center";>
+            <input type="submit" id="deposit" value="Deposit" class="btn btn-primary" required>
+               </h3></div>
+
+  </div>
+  <br>
+</form>
+</div>
+
+    {% endfor %}
+    {% else %}
+    <h2>ERROR</h2>
+    {% endif %}
+</div>
+
+<div class="container">
+        {% include 'includes/_messages.html' %}
+       </div>
+
+<div>
+
+
+{% endblock %}

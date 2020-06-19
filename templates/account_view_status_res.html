@@ -1,0 +1,52 @@
+{% extends 'cash_layout.html' %}
+
+{% block head %}
+    <style>
+        .form-group{
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+<!--Created a form to delete customer-->
+{% block body %}
+<div class="container">
+<h2><center>View Account Details</center></h2>
+    <hr>
+{% from "includes/_formhelpers.html" import render_field %} <!--Included render_field for wtform-->
+    {% for data in result %}    <!--get the data from result fetched from a db in del_customer url-->
+    <div class="row">
+       <div class="col-sm-4" ><h3 style="text-align:right; font-family:Monaco;"><b>Customer id:</b></h3></div>
+      <div class="col-sm-4"> <h3> {{data['cid']}}  </h3></div>
+    </div>
+
+    <div class="row">
+         <div class="col-sm-4" ><h3 style="text-align:right; font-family:Monaco;"><b>Account Id:</b></h3></div>
+      <div class="col-sm-4"> <h3> {{data['accid']}}  </h3></div>
+
+    </div>
+    <div class="row">
+         <div class="col-sm-4" ><h3 style="text-align:right; font-family:Monaco;"><b>Account Type:</b></h3></div>
+      <div class="col-sm-4"> <h3> {{data['acctype']}}  </h3></div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-4" ><h3 style="text-align:right; font-family:Monaco;"><b>Balance:</b></h3></div>
+      <div class="col-sm-4"> <h3> {{data['balance']}}  </h3></div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-4" ><h3 style="text-align:right; font-family:Monaco;"><b>Message:</b></h3></div>
+      <div class="col-sm-4"> <h3> {{data['messages']}}  </h3></div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-4" ><h3 style="text-align:right; font-family:Monaco;"><b>Status:</b></h3></div>
+      <div class="col-sm-4"> <h3> {{data['status']}}  </h3></div>
+  </div>
+
+    {% endfor %}
+</div>
+{% endblock %}

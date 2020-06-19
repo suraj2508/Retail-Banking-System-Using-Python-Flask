@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tcs Bank</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}"/>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+table, td, th
+{
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 50px;
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/cashier">TCS Bank</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">TRANSCATION MANAGEMENT
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/cashier_deposit_status">DEPOSIT</a></li>
+          <li><a href="/cashier_withdrawal_status">WITHDRAWAL</a></li>
+          <li><a href="/cashier_transfer_status">TRANSFER AMOUNT</a></li>
+        </ul>
+      </li>
+       <li> <a href="/account_statement">ACCOUNT STATEMENT</a> </li>
+        <li> <a href="/account_view">VIEW</a> </li>
+    </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log-out</a></li>
+    </ul>
+
+  </div>
+</nav>
+<div class="container">
+        {% include 'includes/_messages.html' %}
+       </div>
+{% block body %}
+
+{% endblock %}
+
+
+
+<div>
+
+
+
+<!---- footer end --->
+
+
+
+</body>
+</html>

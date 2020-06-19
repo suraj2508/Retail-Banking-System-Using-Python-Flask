@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+table, td, th
+{
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 50px;
+}
+</style>
+</head>
+<body>
+<br>
+<div class="container">
+<h1 style="text-align : center;">ABC BANK - ACCOUNT STATEMENT</h1>
+<hr>
+    {% if data %}
+    <h1 style="text-align:center">Account no : {{ data[0]['accid'] }}</h1>
+    <table>
+     <th>
+    <td style="text-align:center">Transcation ID</td>
+    <td style="text-align:center">Description</td>
+    <td style="text-align:center">Date (YYYY-MM-DD)</td>
+    <td style="text-align:center">Amount</td>
+    </th>
+{% for value in data %}
+ <tr>
+        <td style="text-align:center"> <b>*</b></td>
+        <td style="text-align:center">{{ value['tid']}}</td>
+        <td style="text-align:center">{{ value['status']}}</td>
+     <td style="text-align:center">{{ value['tdate']}}</td>
+     <td style="text-align:center">{{ value['amount']}}</td>
+
+
+ </tr>
+    {% endfor %}
+    </table>
+
+{% endif %}
+</div>
+</body>
+</html>

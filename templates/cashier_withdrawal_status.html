@@ -1,0 +1,49 @@
+{% extends 'cash_layout.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+    {% if result %}
+    <div class="container">
+     <form acion="" method="post">
+         <h5><b>Search Manually By Account Id-</b></h5><br>
+        <label for="accid" style="text-align:center;">Account ID: </label>
+    <input type="Number"  name="accid" id="accid" style="text-align:center;" Value="Account Number" required>
+        <input type="submit" value="Search">
+    </form>
+    <hr>
+    <br>
+    <h1 style="text-align : center; " class="3-table w3-striped">ACCOUNT DETAILS</h1>
+    <hr>
+<table>
+     <th>
+    <td style="text-align:center">Customer Id</td>
+    <td style="text-align:center">Account ID</td>
+    <td style="text-align:center">Account Type</td>
+    <td style="text-align:center">Balance</td>
+    <td style="text-align:center">Operation</td>
+    </th>
+{% for data in result %}
+    <tr>
+        <td style="text-align:center"> <b>*</b></td>
+        <td style="text-align:center">{{data['cid']}}</td>
+        <td style="text-align:center">{{data['accid']}}</td>
+         <td style="text-align:center">{{data['acctype']}}</td>
+         <td style="text-align:center">{{data['balance']}}</td>
+         <td style="text-align:center">
+             <form action="{{url_for('account_withdrawal_view', accid=data.accid)}}" method="POST" class="form-group">
+            <input type="submit" value="Withdrawal" class="btn btn-primary">
+        </form></td>
+    </tr>
+{% endfor %}
+</table>
+    <br>
+</div>
+    {% else %}
+    <h1>No data</h1>
+    {% endif %}
+
+{% endblock %}

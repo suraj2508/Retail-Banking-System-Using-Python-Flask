@@ -1,0 +1,49 @@
+{% extends 'exec_layout.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <form acion="" method="post">
+        <h5><b>Search Manually By Account Id-</b></h5><br>
+        <label for="accid" style="text-align:center;">Account ID: </label>
+    <input type="Number"  name="accid" id="accid" style="text-align:center;" Value="Account Number" required>
+        <input type="submit" value="search">
+    </form>
+</div>
+    {% if result %}
+<div class="container">
+    <h1 style="text-align : center; " class="3-table w3-striped">ACCOUNT DETAILS</h1>
+    <hr>
+<table>
+     <th>
+    <td style="text-align:center">Customer Id</td>
+    <td style="text-align:center">Account ID</td>
+    <td style="text-align:center">Account Type</td>
+    <td style="text-align:center">Status</td>
+    <td style="text-align:center">Message</td>
+    <td style="text-align:center">Last Updated</td>
+    <td style="text-align:center">Operation</td>
+    </th>
+{% for data in result %}
+    <tr>
+        <td style="text-align:center"> <b>*</b></td>
+        <td style="text-align:center">{{data['cid']}}</td>
+        <td style="text-align:center">{{data['accid']}}</td>
+         <td style="text-align:center">{{data['acctype']}}</td>
+        <td style="text-align:center">{{data['status']}}</td>
+         <td style="text-align:center">{{data['messages']}}</td>
+         <td style="text-align:center">{{data['udate']}}</td>
+        <td style="text-align:center"><a href="">Refresh</a></td>
+    </tr>
+{% endfor %}
+</table>
+    <br>
+</div>
+    {% else %}
+    <h1>No data</h1>
+    {% endif %}
+
+{% endblock %}

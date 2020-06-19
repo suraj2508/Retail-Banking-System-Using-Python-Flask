@@ -1,0 +1,19 @@
+{% extends 'exec_layout.html' %}     <!--Extended Exec_Layout Template-->
+
+{% block body %}
+
+{% from "includes/_formhelpers.html" import render_field %}
+<div class="container">
+    <h2>DELETE ACCOUNT</h2>
+    <hr>
+<form method='POST' action="/del_account">
+    <div class="form-group">
+        {{render_field(form.CUSTOMER_ID,class_="form-control")}}
+    </div>
+    <div class="form-group">
+        {{render_field(form.Account_Type,class_="form-control")}}
+    </div>
+     <input type="submit" class="btn btn-primary" value="DELETE ACCOUNT">
+</form>
+</div>
+{% endblock %}

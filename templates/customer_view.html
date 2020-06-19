@@ -1,0 +1,13 @@
+{% extends 'exec_layout.html' %}
+
+{% block body %}
+    <div class="container">
+
+    <form action="/customer_status" method="post">
+        <h5><b>Search Manually By Customer Id-</b></h5><br>
+        <label for="cid" style="text-align:center;">CUSTOMER ID: </label>
+    <input type="Number"  name="cid" id="cid" style="text-align:center;" Value="Account Number" required>
+        <input type="submit" value="search">
+    </form>
+</div>
+{% endblock %}

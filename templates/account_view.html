@@ -1,0 +1,13 @@
+{% extends 'cash_layout.html' %}
+
+{% block body %}
+    <div class="container">
+
+    <form action="/account_view_status" method="post">
+        <h5><b>Search Manually By Account Id-</b></h5><br>
+        <label for="cid" style="text-align:center;">Account ID: </label>
+    <input type="Number"  name="accid" id="cid" style="text-align:center;" Value="Account Number" required>
+        <input type="submit" value="Search">
+    </form>
+</div>
+{% endblock %}

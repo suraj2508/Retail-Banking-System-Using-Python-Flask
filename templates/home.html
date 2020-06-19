@@ -1,0 +1,107 @@
+<html>
+<head>
+  <style>
+  html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+  }
+   </style>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <meta content="width=device-width , initia-scale=1.0" name="viewport">
+    <title>Tcs Bank</title>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">TCS Bank</a>
+        </div>
+    </div>
+</nav>
+
+<!--For Flash Message about login failed or passed included _messages.html-->
+<div class="container">
+  {% include 'includes/_messages.html' %}
+</div>
+
+<div class="limiter">
+    <div class="container-login100">
+
+        <div class="wrap-login100">
+            <!--Images-->
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="{{url_for('static', filename='images/images.jpeg')}}"/>
+            </div>
+
+            <form action="" method="POST">
+                <b><h4>TCS BANK : Staff Login</h4></b>
+                <hr>
+              <!--Login Form-->
+                <div class="form-group">
+                    <label for="ip2">User Name:</label>
+                    <input type="text" class="form-control" id="ip2" name="username" placeholder="Enter Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="ip3">Password:</label>
+                    <input type="password" class="form-control" id="ip3" name="password" placeholder="Enter password" required>
+                </div>
+                <br>
+                <button class="btn btn-primary" type="submit">Login</button>
+                <a href="/sample_register" class="btn btn-primary">Register</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<br>
+<br>
+<br>
+
+<section class="footer" style="color : black;">
+  <div class="container-fluid text-center bottom-container">
+    <div class="footer-grids" style="width: 130%;">
+      <div class="col-md-4 footer-grid1">
+        <div class="logo1">
+          <h4>About Us</h4>
+        </div>
+        <p> TCS Bank was founded on 11th June 2020 with the objective of providing with detail services based on Retail Banking operations. The Retail Internet Banking of TCS Bank offers a plethora of products and services, to cater its customer by providing certain animus services with an easy volving offers and ways to the required job without hurdling the process. </p>
+        </div>
+
+      <div class="col-md-2 footer-grid3">
+        <h4>Services</h4>
+        <p>Retail and Customer Banking</p>
+        <p>Personal Internet Banking</p>
+        <p>Corporate Internet Banking</p>
+        <p>Debit and Credit Cards</p>
+      </div>
+
+      <div class="col-md-3 footer-grid4">
+        <h4 color=red;>Contact Us</h4>
+        <p> Email : customer.service@tcsbank.com</p>
+        <p>Contact Numbers : 08594-123456,020-9852136025</p>
+        <p>Address : TCS Bank,Madame Cama Road, Mumbai, Maharashtra 400021</p>
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</section>
+<section class="copyright" style="color : red;">
+  <div class="agileits_copyright text-center">
+      <p>© 2020 TCS Bank. All rights reserved
+  </div>
+</section>
+</html>

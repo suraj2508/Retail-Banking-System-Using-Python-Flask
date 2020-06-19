@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tcs Bank</title>
+   <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}"/>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+table, td, th
+{
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 50px;
+}
+    .form-control{
+      width: 50%;
+    }
+  </style>
+{% block head %}
+
+{% endblock %}
+</head>
+<body>
+<!--Executive Layout Template Page Creation-->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/executive">TCS Bank</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/executive">HOME</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">CUSTOMER MANAGEMENT
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/add_customer">Add Customer</a></li>
+          <li><a href="/del_customer">Delete Customer</a></li>
+          <li><a href="/update_customer">Update Customer</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">ACCOUNT MANAGEMENT
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/add_account">Add Account</a></li>
+          <li><a href="/del_account">Delete Account</a></li>
+        </ul>
+      </li>
+
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">STATUS
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/customer_status">CUSTOMER</a></li>
+          <li><a href="/account_status">ACCOUNT</a></li>
+        </ul>
+      </li>
+       <li> <a href="/customer_view">VIEW</a> </li>
+    </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log-out</a></li>
+    </ul>
+
+  </div>
+</nav>
+ <div class="container">
+    {% include 'includes/_messages.html' %}
+</div>
+{% block body %}
+
+{% endblock %}
+
+<!--To Flash the messages on the layout screen-->
+
+
+
+</body>
+</html>

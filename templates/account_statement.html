@@ -1,0 +1,79 @@
+{% extends 'cash_layout.html' %}
+
+{% block body %}
+
+<br><br>
+<h2 style="text-align : center;">Account Statement Page</h2>
+    <hr>
+<div class="container">
+
+    <form action="" method="POST">
+      <div style="text-align : center;">
+        <label for="accid">ENTER ACCOUNT ID:*</label>
+    <input type="number" id="accid" name="accid" class="search" placeholder="Search" style="text-align : center;" required>
+      </div>
+      <hr>
+       <div style="text-align : center;">
+        <label for="days">Last No. of Transactions</label>
+           <select name="days" id="days" >
+            <option value="">None</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+                <option value="3">3</option>
+            <option value="4">4</option>
+                <option value="5">5</option>
+            <option value="6">6</option>
+                <option value="7">7</option>
+            <option value="8">8</option>
+                <option value="9">9</option>
+            <option value="10">10</option>
+            </select>
+      </div>
+        <h5 style="text-align : center;"><b>Either</b></h5>
+         <div style="text-align : center;">
+        <label for="sod">Start of the Date</label>
+    <input type="Date" id="sod" name="sod" class="search" placeholder="" style="text-align : center;">
+      </div>
+        <br>
+        <div style="text-align : center;">
+        <label for="eod">End of the Date</label>
+    <input type="Date" id="eod" name="eod" class="search" placeholder="" style="text-align : center;">
+      </div>
+        <div style="text-align : center;">
+            <br>
+    <input type="submit" name="submit" value="Submit" style="text-align : center;">
+      </div>
+    </form>
+</div>
+<hr>
+<div class="container">
+{% if data %}
+    <h1 style="text-align:center">Account no : {{ data[0]['accid'] }}</h1>
+    <table>
+     <th>
+    <td style="text-align:center">Transcation ID</td>
+    <td style="text-align:center">Description</td>
+    <td style="text-align:center">Date (YYYY-MM-DD)</td>
+    <td style="text-align:center">Amount</td>
+    </th>
+{% for value in data %}
+ <tr>
+        <td style="text-align:center"> <b>*</b></td>
+        <td style="text-align:center">{{ value['tid']}}</td>
+        <td style="text-align:center">{{ value['status']}}</td>
+     <td style="text-align:center">{{ value['tdate']}}</td>
+     <td style="text-align:center">{{ value['amount']}}</td>
+
+
+ </tr>
+    {% endfor %}
+    </table>
+ {% else %}
+    <div class="container">
+        <div style="text-align : center;">
+            <h1 style="text-align : center:">No Transcation Found</h1>
+      </div>
+{% endif %}
+
+</div>
+{% endblock %}
